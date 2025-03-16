@@ -19,7 +19,7 @@ cs310-final-project/
 │ ├── spam-or-ham.js  
 │ 
 │ └── ... 
-├── config.env 
+├── .env 
 ├── package-lock.json 
 ├── package.json 
 ```
