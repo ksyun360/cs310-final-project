@@ -14,7 +14,6 @@ const SpamDetector = () => {
     setResult(null);
     setLoading(true);
 
-    // Construct the API URL from an environment variable (e.g., .env file)
     const baseurl = process.env.REACT_APP_API_URL;
     const api = '/predict'; 
     const url = `${baseurl}${api}`;
@@ -33,7 +32,9 @@ const SpamDetector = () => {
         },
         body: JSON.stringify(payload)
       });
-
+      
+      console.log("Response headers:", [...response.headers]);
+      
       if (!response.ok) {
         const errorData = await response.json();
         setError(errorData);
@@ -95,24 +96,19 @@ const SpamDetector = () => {
         </div>
       )}
       {result && (
-        <div style={{ marginTop: '1rem', background: '#f4f4f4', padding: '1rem', borderRadius: '4px' }}>
-          <h2>Analysis Result</h2>
-          <p>
-            <strong>Subject:</strong> {subject}
-          </p>
-          <p>
-            <strong>Message:</strong> {message}
-          </p>
-          <p>
-            <strong>Verdict:</strong> {result.analysis}
-          </p>
-          {result.probability && (
-            <p>
-              <strong>Probability:</strong> {result.probability}%
-            </p>
-          )}
-        </div>
-      )}
+      <div className={`result-box ${result.prediction === "spam" ? "spam" : "ham"}`}>
+        <h2>Analysis Result</h2>
+        <p>
+          <strong>Subject:</strong> {subject}
+        </p>
+        <p>
+          <strong>Message:</strong> {message}
+        </p>
+        <p>
+          <strong>Verdict:</strong> {result.prediction.toUpperCase()}
+        </p>
+      </div>
+    )}
     </div>
   );
 };

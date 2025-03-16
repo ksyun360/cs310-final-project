@@ -66,19 +66,28 @@ button[type="submit"]:hover {
 }
 
 .error-box {
-  margin-top: 1rem;
+  margin-top: 2rem;
   color: red;
 }
 
 .result-box {
-  margin-top: 1rem;
-  background: #f4f4f4;
+  margin-top: 4rem;
   padding: 1rem;
   border-radius: 8px;
-  border: 2px dashed #FF9671;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
-.result-box h2 {
-  margin-top: 0;
-  color: #FF6F91;
+/* Spam result box */
+.result-box.spam {
+  background-color: #fcd4d4; 
+  border-color: #f4c2b6;
+  color: #821f06; 
+}
+
+/* Ham (Not Spam) result box */
+.result-box.ham {
+  background-color: #C8E6C9; 
+  border-color: #81C784; 
+  color: #388E3C;
 }
