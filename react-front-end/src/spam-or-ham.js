@@ -15,8 +15,7 @@ const SpamDetector = () => {
     setLoading(true);
 
     const baseurl = process.env.REACT_APP_API_URL;
-    const api = '/predict'; 
-    const url = `${baseurl}${api}`;
+    const url = `${baseurl}`;
 
     const payload = {
       subject,
