@@ -9,19 +9,22 @@ The application will return a likelihood of the message being spam (fake) or ham
 ## Project Structure
 ```
 cs310-final-project/ 
-├── spam-or-ham/  
-├── public/  
+│
+├── .ipynb_checkpoints/  
+│
+├── ai-sagemaker/  
 │ 
-├── src/ 
+├── react-front-end/ 
 │ 
-│ ├── App.js  
+│ ├── public/  
 │ 
-│ ├── spam-or-ham.js  
+│ ├── src/  
 │ 
 │ └── ... 
-├── .env 
-├── package-lock.json 
-├── package.json 
+│ 
+├── Dockerfile
+│  
+├── README.md 
 ```
 
 ## Setup Instructions
@@ -38,7 +41,7 @@ cd cs310-final-project
 ### 2. Set Up the React Client
 Navigate to the React client directory:
 ```
-cd spam-or-ham
+cd react-front-end
 ```
 
 Install the necessary dependencies:
