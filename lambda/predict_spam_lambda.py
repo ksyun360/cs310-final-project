@@ -67,7 +67,7 @@ def lambda_handler(event, context):
         
         # Make prediction
         prediction = int(model.predict(input_vector)[0])
-        if prediction == 1:
+        if prediction == 0:
             result = "spam"
         else:
             result = "ham"

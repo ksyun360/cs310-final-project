@@ -26,14 +26,14 @@ nltk.download('wordnet')
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
 
-#Function which generate the features
+#function which generate the features
 def pre_process(text):
     tokens = word_tokenize(text.lower()) #convert the text to all lowercase words and then tokenize 
 
     tokens = [lemmatizer.lemmatize(word) for word in tokens if word.isalpha() and word not in stop_words] # store the lemmatized version of all the words in text (excluding words that aren't strictly alphabetical and words within stop_words  
     return ' '.join(tokens)
 
-#Appending the feature columns to our dataframe
+#appending the feature columns to our dataframe
 df['Message'] = df['Message'].fillna('') #fill N/A messages with empty string 
 df['Cleaned_Message'] = df['Message'].apply(pre_process) #Create the cleaned_message feature 
 df['Spam/Ham'] = df['Spam/Ham'].map({'spam': 0, 'ham': 1}) #Binarize the data so that Spam = 0 and Ham = 1
@@ -52,7 +52,7 @@ y = df['Spam/Ham']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) #split the data into training and testing sets
 
 
-#Now time to choose a model 
+#now time to choose a model 
 
 nb = MultinomialNB()
 
@@ -61,7 +61,7 @@ nb.fit(X_train, y_train)
 
 
 
-#Now we can evaluate the model 
+#now we can evaluate the model 
 y_pred = nb.predict(X_test)
 
 print("Accuracy:", accuracy_score(y_test, y_pred))
